@@ -22,6 +22,20 @@ export default function Home() {
         <a href="/library" className="bg-[#2C2C2A] text-[#FAF8F4] px-8 py-4 text-sm tracking-wide hover:bg-[#444441] transition-colors">
           Explore the library
         </a>
+
+        <div className="mt-16 flex flex-col items-center gap-3">
+          <p className="text-xs uppercase tracking-widest text-[#888780]">Have a book code?</p>
+          <form action="/find" method="GET" className="flex gap-3">
+            <input
+              name="code"
+              placeholder="LB-00001"
+              className="border border-[#D3D1C7] bg-transparent px-4 py-3 text-sm text-[#2C2C2A] placeholder-[#888780] outline-none focus:border-[#2C2C2A] transition-colors w-36 text-center tracking-widest"
+            />
+            <button type="submit" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
+              Find book
+            </button>
+          </form>
+        </div>
       </section>
 
       <section className="px-8 py-24 max-w-4xl mx-auto">

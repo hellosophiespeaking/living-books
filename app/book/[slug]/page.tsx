@@ -2,7 +2,7 @@ import { supabase } from '../../lib/supabase'
 import ReflectionForm from '../../lib/ReflectionForm'
 import BookMap from '../../lib/BookMap'
 
-export default async function BookPage({ params }) {
+export default async function BookPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const { data: book } = await supabase
     .from('books')
@@ -42,7 +42,7 @@ export default async function BookPage({ params }) {
         <h2 className="font-serif text-2xl text-[#2C2C2A] mt-12 mb-8">Stops along the way</h2>
         {book.journeys && book.journeys.length > 0 ? (
           <div className="space-y-6">
-            {book.journeys.map((journey, index) => (
+            {book.journeys.map((journey: any, index: number) => (
               <div key={journey.id} className="flex gap-6">
                 <div className="flex flex-col items-center">
                   <div className="w-2 h-2 rounded-full bg-[#888780] mt-1"></div>
@@ -65,7 +65,7 @@ export default async function BookPage({ params }) {
           <>
             <h2 className="font-serif text-2xl text-[#2C2C2A] mt-16 mb-8">Reflections</h2>
             <div className="space-y-6">
-              {book.reflections.map((reflection) => (
+              {book.reflections.map((reflection: any) => (
                 <div key={reflection.id} className="bg-white p-6">
                   <p className="text-[#5F5E5A] leading-relaxed">{reflection.content}</p>
                 </div>

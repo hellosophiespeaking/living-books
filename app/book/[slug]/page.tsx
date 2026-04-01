@@ -1,4 +1,6 @@
 import { supabase } from '../../lib/supabase'
+import ReflectionForm from '../../lib/ReflectionForm'
+import BookMap from '../../lib/BookMap'
 
 export default async function BookPage({ params }) {
   const { slug } = await params
@@ -23,25 +25,35 @@ export default async function BookPage({ params }) {
         <h1 className="font-serif text-5xl text-[#2C2C2A] mb-2">{book.title}</h1>
         <p className="text-lg text-[#5F5E5A] mb-12">{book.author}</p>
 
-{book.cover_url && (
-  <img
-    src={book.cover_url}
-    alt={book.title}
-    className="w-32 mb-12 shadow-sm"
-  />
-)}
+        {book.cover_url && (
+          <img
+            src={book.cover_url}
+            alt={book.title}
+            className="w-32 mb-12 shadow-sm"
+          />
+        )}
 
         {book.description && (
           <p className="text-[#5F5E5A] leading-relaxed mb-16">{book.description}</p>
         )}
 
-        <h2 className="font-serif text-2xl text-[#2C2C2A] mb-8">Journey so far</h2>
+        <BookMap journeys={book.journeys || []} />
+
+        <h2 className="font-serif text-2xl text-[#2C2C2A] mt-12 mb-8">Stops along the way</h2>
         {book.journeys && book.journeys.length > 0 ? (
-          <div className="space-y-4">
-            {book.journeys.map((journey) => (
-              <div key={journey.id} className="border-l-2 border-[#D3D1C7] pl-6 py-2">
-                <p className="text-[#2C2C2A]">{journey.reader_name}</p>
-                <p className="text-sm text-[#888780]">{journey.location}</p>
+          <div className="space-y-6">
+            {book.journeys.map((journey, index) => (
+              <div key={journey.id} className="flex gap-6">
+                <div className="flex flex-col items-center">
+                  <div className="w-2 h-2 rounded-full bg-[#888780] mt-1"></div>
+                  {index < book.journeys.length - 1 && (
+                    <div className="w-px flex-1 bg-[#D3D1C7] mt-2"></div>
+                  )}
+                </div>
+                <div className="pb-8">
+                  <p className="text-[#2C2C2A] font-medium">{journey.reader_name}</p>
+                  <p className="text-sm text-[#888780]">{journey.location}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -61,8 +73,10 @@ export default async function BookPage({ params }) {
             </div>
           </>
         )}
-      </section>
 
+        <ReflectionForm bookId={book.id} />
+
+      </section>
     </main>
   )
 }

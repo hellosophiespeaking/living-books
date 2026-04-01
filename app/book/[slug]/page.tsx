@@ -80,3 +80,4 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
     </main>
   )
 }
+

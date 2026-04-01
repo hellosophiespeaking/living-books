@@ -58,9 +58,12 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="text-center py-12 text-sm text-[#888780]">
-        A life beyond the page.
-      </footer>
+<footer className="text-center py-12 text-sm text-[#888780]">
+  <p className="mb-4">A life beyond the page.</p>
+  <a href="/submit" className="underline hover:text-[#2C2C2A] transition-colors">
+    Release a book into the world
+  </a>
+</footer>
 
     </main>
   )

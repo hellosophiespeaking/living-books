@@ -19,9 +19,14 @@ export default function Home() {
         <p className="text-lg text-[#5F5E5A] max-w-md leading-relaxed mb-12">
           A global community where books live full lives — read, experienced, released, and passed forward.
         </p>
-        <a href="/library" className="bg-[#2C2C2A] text-[#FAF8F4] px-8 py-4 text-sm tracking-wide hover:bg-[#444441] transition-colors">
-          Explore the library
-        </a>
+        <div className="flex gap-4">
+          <a href="/library" className="bg-[#2C2C2A] text-[#FAF8F4] px-8 py-4 text-sm tracking-wide hover:bg-[#444441] transition-colors">
+            Explore the library
+          </a>
+          <a href="/submit" className="border border-[#2C2C2A] text-[#2C2C2A] px-8 py-4 text-sm tracking-wide hover:bg-[#2C2C2A] hover:text-[#FAF8F4] transition-colors">
+            Release a book
+          </a>
+        </div>
 
         <div className="mt-16 flex flex-col items-center gap-3">
           <p className="text-xs uppercase tracking-widest text-[#888780]">Have a book code?</p>
@@ -58,12 +63,9 @@ export default function Home() {
         </div>
       </section>
 
-<footer className="text-center py-12 text-sm text-[#888780]">
-  <p className="mb-4">A life beyond the page.</p>
-  <a href="/submit" className="underline hover:text-[#2C2C2A] transition-colors">
-    Release a book into the world
-  </a>
-</footer>
+      <footer className="text-center py-12 text-sm text-[#888780]">
+        A life beyond the page.
+      </footer>
 
     </main>
   )

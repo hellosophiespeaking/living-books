@@ -28,7 +28,7 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="mt-16 flex flex-col items-center gap-3">
+        <div className="mt-10 flex flex-col items-center gap-3">
           <p className="text-xs uppercase tracking-widest text-[#888780]">Have a book code?</p>
           <form action="/find" method="GET" className="flex gap-3">
             <input
@@ -43,17 +43,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-8 py-24 max-w-4xl mx-auto">
+      <section className="px-8 py-12 max-w-4xl mx-auto">
         <h2 className="font-serif text-3xl text-[#2C2C2A] text-center mb-16">
           How books travel
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           {[
             { step: "01", label: "Read" },
             { step: "02", label: "Experience" },
             { step: "03", label: "Record" },
             { step: "04", label: "Release" },
-            { step: "05", label: "Pass forward" },
           ].map(({ step, label }) => (
             <div key={step} className="flex flex-col items-center gap-3">
               <span className="text-xs text-[#888780] tracking-widest">{step}</span>

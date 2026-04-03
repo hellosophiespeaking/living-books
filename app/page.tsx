@@ -45,7 +45,7 @@ export default function Home() {
 
       <section className="px-8 py-24 max-w-4xl mx-auto">
         <h2 className="font-serif text-3xl text-[#2C2C2A] text-center mb-16">
-          The Living Books way
+          How books travel
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 text-center">
           {[

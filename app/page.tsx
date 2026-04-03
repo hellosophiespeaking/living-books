@@ -17,7 +17,7 @@ export default function Home() {
           Books should never sit still.
         </h1>
         <p className="text-lg text-[#5F5E5A] max-w-md leading-relaxed mb-12">
-          A global community where books live full lives — read, experienced, released, and passed forward.
+          A global community where books live full lives — read, experienced and released.
         </p>
         <div className="flex gap-4">
           <a href="/library" className="bg-[#2C2C2A] text-[#FAF8F4] px-8 py-4 text-sm tracking-wide hover:bg-[#444441] transition-colors">

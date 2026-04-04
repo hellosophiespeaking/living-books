@@ -5,6 +5,9 @@ export default function Home() {
       <nav className="flex justify-between items-center px-8 py-6">
         <span className="font-serif text-xl text-[#2C2C2A]">Living Books</span>
         <div className="flex items-center gap-6">
+          <a href="/about" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
+            About
+          </a>
           <a href="/library" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
             Library
           </a>

@@ -30,7 +30,7 @@ export default function About() {
 
         <div className="space-y-8 text-[#5F5E5A] leading-relaxed text-lg">
           <p>
-            In 2018, while travelling through London, South Africa, Italy and Budapest, 10 books were read over 7 weeks. Unable to fit them in a suitcase, they were left behind along the way. Not lost — given a new adventure. Gifted to a fellow traveller, tucked into a hostel bookshelf or placed in a street library.
+            In 2018, while travelling through London, South Africa, Italy and Budapest, 10 books were read over 7 weeks. Unable to fit them in a suitcase, they were left behind along the way. Not lost — given a new adventure. Gifted to a fellow traveller, tucked into a airbnb bookshelf or placed in a street library.
           </p>
           <p>
             But the wondering never stopped. Who picked them up? Did they love or loathe the book? Did they pass it on again? Physically where is the book now?

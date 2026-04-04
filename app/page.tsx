@@ -4,9 +4,18 @@ export default function Home() {
 
       <nav className="flex justify-between items-center px-8 py-6">
         <span className="font-serif text-xl text-[#2C2C2A]">Living Books</span>
-        <a href="/library" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
-          Library
-        </a>
+        <div className="flex items-center gap-6">
+          <a href="/library" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
+            Library
+          </a>
+          <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" className="text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
       </nav>
 
       <section className="flex flex-col items-center justify-center text-center px-8 py-32">
@@ -63,7 +72,15 @@ export default function Home() {
       </section>
 
       <footer className="text-center py-12 text-sm text-[#888780]">
-        A life beyond the page.
+        <p className="mb-4">A life beyond the page.</p>
+        <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#888780] hover:text-[#2C2C2A] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          @livingbooksarchive
+        </a>
       </footer>
 
     </main>

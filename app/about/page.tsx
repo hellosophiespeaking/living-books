@@ -30,16 +30,16 @@ export default function About() {
 
         <div className="space-y-8 text-[#5F5E5A] leading-relaxed text-lg">
           <p>
-            In 2018, while travelling through London, South Africa, Italy and Budapest, 10 books were read over 7 weeks. Unable to fit them in a suitcase, they were left behind along the way. Not lost — given a new adventure. Gifted to a fellow traveller, tucked into a airbnb bookshelf or placed in a street library.
+            In 2018, while travelling through London, South Africa, Italy and Budapest, 10 books were read over 7 weeks. Unable to fit them in a suitcase, they were left behind along the way. Not lost just given a new adventure. Gifted to a fellow traveller, tucked into an Airbnb bookshelf or placed in a street library.
           </p>
           <p>
-            But the wondering never stopped. Who picked them up? Did they love or loathe the book? Did they pass it on again? Physically where is the book now?
+            But the wondering never stopped. Who picked them up? Did they love or loathe the book? Did they pass it on again? Physically, where is the book now?
           </p>
           <p>
             That quiet curiosity, about the lives books live after we let them go — became the seed of Living Books.
           </p>
           <p>
-            Living Books is a global community where books travel between readers, carrying stories, experiences and memories with them. Each book is given a unique code. Each reader who finds it logs their experience, leaves a reflection, and releases it back into the world.
+            Living Books is a global community where books travel between readers, carrying stories, experiences and memories with them. Each book is given a unique code. Each reader who finds it logs the books latest location, leaves a reflection, and releases it back into the world.
           </p>
           <p>
             The book is the main character. Readers are stewards, not owners.

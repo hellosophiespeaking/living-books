@@ -56,48 +56,48 @@ export default function ReflectionForm({ bookId }: { bookId: string }) {
 
   if (submitted) {
     return (
-      <div className="mt-16 border-t border-[#D3D1C7] pt-12">
-        <p className="font-serif text-xl text-[#2C2C2A]">Thank you for your reflection.</p>
-        <p className="text-[#888780] mt-2">The book journeys on.</p>
+      <div style={{marginTop: '56px', paddingTop: '40px', borderTop: '1px solid #C6D8FF'}}>
+        <p style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px', marginBottom: '8px'}}>Thank you for your reflection.</p>
+        <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '14px'}}>The book journeys on.</p>
       </div>
     )
   }
 
   return (
-    <div className="mt-16 border-t border-[#D3D1C7] pt-12">
-      <p className="text-xs uppercase tracking-widest text-[#888780] mb-2">Your turn</p>
-      <h2 className="font-serif text-2xl text-[#2C2C2A] mb-8">Leave a reflection</h2>
-      <div className="flex flex-col gap-4">
+    <div style={{marginTop: '56px', paddingTop: '40px', borderTop: '1px solid #C6D8FF'}}>
+      <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '8px'}}>Your turn</p>
+      <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '28px', marginBottom: '28px'}}>Leave a reflection</h2>
+      <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
         <input
           type="text"
           placeholder="Your name"
           value={name}
           onChange={e => setName(e.target.value)}
-          className="border border-[#D3D1C7] bg-transparent px-4 py-3 text-sm text-[#2C2C2A] placeholder-[#888780] outline-none focus:border-[#2C2C2A] transition-colors"
+          style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
         />
         <input
           type="text"
           placeholder="Your location (e.g. Melbourne, Australia)"
           value={location}
           onChange={e => setLocation(e.target.value)}
-          className="border border-[#D3D1C7] bg-transparent px-4 py-3 text-sm text-[#2C2C2A] placeholder-[#888780] outline-none focus:border-[#2C2C2A] transition-colors"
+          style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
         />
         <textarea
           placeholder="What did this book mean to you?"
           value={content}
           onChange={e => setContent(e.target.value)}
           rows={5}
-          className="border border-[#D3D1C7] bg-transparent px-4 py-3 text-sm text-[#2C2C2A] placeholder-[#888780] outline-none focus:border-[#2C2C2A] transition-colors resize-none"
+          style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%', resize: 'none'}}
         />
         <button
           onClick={handleSubmit}
-          className="bg-[#2C2C2A] text-[#FAF8F4] px-8 py-4 text-sm tracking-wide hover:bg-[#444441] transition-colors"
+          style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', border: 'none', cursor: 'pointer', marginTop: '4px'}}
         >
           Submit reflection
         </button>
       </div>
       {message && (
-        <p className="text-sm text-[#5F5E5A] mt-6">{message}</p>
+        <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', marginTop: '16px'}}>{message}</p>
       )}
     </div>
   )

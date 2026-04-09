@@ -1,17 +1,15 @@
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FAF8F4]">
+    <main className="min-h-screen" style={{backgroundColor: '#FAF6EE'}}>
 
-      <nav className="flex justify-between items-center px-8 py-6">
-        <span className="font-serif text-xl text-[#2C2C2A]">Living Books</span>
-        <div className="flex items-center gap-6">
-          <a href="/about" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
-            About
-          </a>
-          <a href="/library" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
-            Library
-          </a>
-          <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" className="text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
+      <nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '24px 32px'}}>
+        <a href="/">
+          <img src="/Logo_Chocolate.png" alt="Living Books" style={{height: '32px'}} />
+        </a>
+        <div style={{display: 'flex', alignItems: 'center', gap: '32px'}}>
+          <a href="/about" style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', textDecoration: 'none'}}>About</a>
+          <a href="/library" style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', textDecoration: 'none'}}>Library</a>
+          <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" style={{color: '#533021'}}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <circle cx="12" cy="12" r="4"/>
@@ -21,62 +19,62 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="flex flex-col items-center justify-center text-center px-8 py-32">
-        <p className="text-sm uppercase tracking-widest text-[#888780] mb-6">
+      <section style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '32px 32px 64px'}}>
+        <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '16px'}}>
           A travelling book community
         </p>
-        <h1 className="font-serif text-5xl text-[#2C2C2A] leading-tight mb-8 max-w-3xl">
+        <h1 style={{fontFamily: 'Archivo', color: '#533021', fontSize: 'clamp(40px, 8vw, 80px)', lineHeight: '1', marginBottom: '24px', maxWidth: '800px'}}>
           Books should never sit still.
         </h1>
-        <p className="text-lg text-[#5F5E5A] max-w-md leading-relaxed mb-12">
+        <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '16px', maxWidth: '420px', lineHeight: '1.7', marginBottom: '40px'}}>
           A global community where books live full lives — read, experienced and released.
         </p>
-        <div className="flex gap-4">
-          <a href="/library" className="bg-[#2C2C2A] text-[#FAF8F4] px-8 py-4 text-sm tracking-wide hover:bg-[#444441] transition-colors">
+        <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center'}}>
+          <a href="/library" style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none', display: 'inline-block'}}>
             Explore the library
           </a>
-          <a href="/submit" className="border border-[#2C2C2A] text-[#2C2C2A] px-8 py-4 text-sm tracking-wide hover:bg-[#2C2C2A] hover:text-[#FAF8F4] transition-colors">
+          <a href="/submit" style={{border: '1px solid #533021', color: '#533021', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none', display: 'inline-block'}}>
             Release a book
           </a>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-3">
-          <p className="text-xs uppercase tracking-widest text-[#888780]">Have a book code?</p>
-          <form action="/find" method="GET" className="flex gap-3">
+        <div style={{marginTop: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
+          <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase'}}>Have a book code?</p>
+          <form action="/find" method="GET" style={{display: 'flex', gap: '12px'}}>
             <input
               name="code"
               placeholder="LB-00001"
-              className="border border-[#D3D1C7] bg-transparent px-4 py-3 text-sm text-[#2C2C2A] placeholder-[#888780] outline-none focus:border-[#2C2C2A] transition-colors w-36 text-center tracking-widest"
+              style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '13px', color: '#533021', outline: 'none', width: '140px', textAlign: 'center', letterSpacing: '0.1em'}}
             />
-            <button type="submit" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
+            <button type="submit" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', background: 'none', border: 'none', cursor: 'pointer'}}>
               Find book
             </button>
           </form>
         </div>
       </section>
 
-      <section className="px-8 py-12 max-w-4xl mx-auto">
-        <h2 className="font-serif text-3xl text-[#2C2C2A] text-center mb-16">
+      <section style={{backgroundColor: '#C6D8FF', padding: '64px 32px'}}>
+        <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', textAlign: 'center', marginBottom: '48px'}}>
           How books travel
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        <div style={{maxWidth: '800px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px', textAlign: 'center'}}>
           {[
             { step: "01", label: "Read" },
             { step: "02", label: "Experience" },
             { step: "03", label: "Record" },
             { step: "04", label: "Release" },
           ].map(({ step, label }) => (
-            <div key={step} className="flex flex-col items-center gap-3">
-              <span className="text-xs text-[#888780] tracking-widest">{step}</span>
-              <span className="font-serif text-lg text-[#2C2C2A]">{label}</span>
+            <div key={step} style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+              <span style={{fontFamily: 'LaBelle', color: '#8D3F2F', fontSize: '16px'}}>{step}</span>
+              <span style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px'}}>{label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <footer className="text-center py-12 text-sm text-[#888780]">
-        <p className="mb-4">A life beyond the page.</p>
-        <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#888780] hover:text-[#2C2C2A] transition-colors">
+      <footer style={{textAlign: 'center', padding: '48px 32px', fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px'}}>
+        <p style={{marginBottom: '16px'}}>A life beyond the page.</p>
+        <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" style={{display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#8D3F2F', textDecoration: 'none'}}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <circle cx="12" cy="12" r="4"/>

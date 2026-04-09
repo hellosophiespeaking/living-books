@@ -1,17 +1,15 @@
 export default function About() {
   return (
-    <main className="min-h-screen bg-[#FAF8F4]">
+    <main className="min-h-screen" style={{backgroundColor: '#FAF6EE'}}>
 
-      <nav className="flex justify-between items-center px-8 py-6">
-        <a href="/" className="font-serif text-xl text-[#2C2C2A]">Living Books</a>
-        <div className="flex items-center gap-6">
-          <a href="/about" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
-            About
-          </a>
-          <a href="/library" className="text-sm text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
-            Library
-          </a>
-          <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" className="text-[#5F5E5A] hover:text-[#2C2C2A] transition-colors">
+      <nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '24px 32px'}}>
+        <a href="/">
+          <img src="/Logo_Chocolate.png" alt="Living Books" style={{height: '32px'}} />
+        </a>
+        <div style={{display: 'flex', alignItems: 'center', gap: '32px'}}>
+          <a href="/about" style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', textDecoration: 'none'}}>About</a>
+          <a href="/library" style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', textDecoration: 'none'}}>Library</a>
+          <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" style={{color: '#533021'}}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <circle cx="12" cy="12" r="4"/>
@@ -21,43 +19,42 @@ export default function About() {
         </div>
       </nav>
 
-      <section className="px-8 py-24 max-w-2xl mx-auto">
-
-        <p className="text-xs uppercase tracking-widest text-[#888780] mb-4">Our story</p>
-        <h1 className="font-serif text-5xl text-[#2C2C2A] leading-tight mb-16">
+      <section style={{padding: '48px 32px', maxWidth: '600px', margin: '0 auto'}}>
+        <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '16px'}}>Our story</p>
+        <h1 style={{fontFamily: 'Archivo', color: '#533021', fontSize: 'clamp(36px, 6vw, 56px)', lineHeight: '1.05', marginBottom: '40px'}}>
           A life beyond the page.
         </h1>
 
-        <div className="space-y-8 text-[#5F5E5A] leading-relaxed text-lg">
+        <div style={{display: 'flex', flexDirection: 'column', gap: '16px', fontFamily: 'Toren', color: '#533021', fontSize: '15px', lineHeight: '1.6'}}>
           <p>
-            In 2018, while travelling through London, South Africa, Italy and Budapest, 10 books were read over 7 weeks. Unable to fit them in a suitcase, they were left behind along the way. Not lost just given a new adventure. Gifted to a fellow traveller, tucked into an Airbnb bookshelf or placed in a street library.
+            In 2018, while travelling through London, South Africa, Italy and Budapest, 10 books were read over 7 weeks. Unable to fit them in a suitcase, they were left behind along the way. Not lost — given a new adventure. Gifted to a fellow traveller, tucked into a hostel bookshelf or placed in a street library.
           </p>
           <p>
-            But the wondering never stopped. Who picked them up? Did they love or loathe the book? Did they pass it on again? Physically, where is the book now?
+            But the wondering never stopped. Who picked them up? Did they love or loathe the book? Did they pass it on again? Physically where is the book now?
           </p>
           <p>
-            That quiet curiosity, about the lives books live after we let them go — became the seed of Living Books.
+            That quiet curiosity — about the lives books live after we let them go — became the seed of Living Books.
           </p>
           <p>
-            Living Books is a global community where books travel between readers, carrying stories, experiences and memories with them. Each book is given a unique code. Each reader who finds it logs the books latest location, leaves a reflection, and releases it back into the world.
+            Living Books is a global community where books travel between readers, carrying stories, experiences and memories with them. Each book is given a unique code. Each reader who finds it logs their experience, leaves a reflection, and releases it back into the world.
           </p>
           <p>
             The book is the main character. Readers are stewards, not owners.
           </p>
           <p>
-            This is not a book swap. It is not a marketplace. It is not a review platform. It is a movement, a philosophy about what books are capable of when we stop holding on to them.
+            This is not a book swap. It is not a marketplace. It is not a review platform. It is a movement — a philosophy about what books are capable of when we stop holding on to them.
           </p>
           <p>
-            Every book in the Living Books archive has a life. A journey. A timeline of the hands it has passed through and the places it has been. That history belongs to the book and to everyone who has ever held it.
+            Every book in the Living Books archive has a life. A journey. A timeline of the hands it has passed through and the places it has been. That history belongs to the book — and to everyone who has ever held it.
           </p>
-          <p className="font-serif text-2xl text-[#2C2C2A] italic">
+          <p style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px', fontStyle: 'italic', marginTop: '8px'}}>
             Books should never sit still.
           </p>
         </div>
 
-        <div className="mt-24 pt-12 border-t border-[#D3D1C7]">
-          <p className="text-xs uppercase tracking-widest text-[#888780] mb-6">Our values</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div style={{marginTop: '56px', paddingTop: '40px', borderTop: '1px solid #C6D8FF'}}>
+          <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '28px'}}>Our values</p>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px'}}>
             {[
               { title: "Intentional living", body: "Slow, thoughtful participation. Every book released with purpose." },
               { title: "Books as living objects", body: "Books carry memory and identity. They are not static." },
@@ -65,26 +62,25 @@ export default function About() {
               { title: "Circular sustainability", body: "Books stay in motion. Nothing sits on a shelf gathering dust." },
               { title: "Community connection", body: "Reading is shared. Every reflection is a thread between strangers." },
             ].map(({ title, body }) => (
-              <div key={title} className="border-l-2 border-[#D3D1C7] pl-6 py-1">
-                <p className="font-serif text-lg text-[#2C2C2A] mb-2">{title}</p>
-                <p className="text-sm text-[#888780] leading-relaxed">{body}</p>
+              <div key={title} style={{borderLeft: '2px solid #C6D8FF', paddingLeft: '16px'}}>
+                <p style={{fontFamily: 'Archivo', color: '#533021', fontSize: '17px', marginBottom: '6px'}}>{title}</p>
+                <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', lineHeight: '1.6'}}>{body}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-24 text-center">
-          <p className="text-[#5F5E5A] mb-8">Ready to release a book into the world?</p>
-          <a href="/submit" className="bg-[#2C2C2A] text-[#FAF8F4] px-8 py-4 text-sm tracking-wide hover:bg-[#444441] transition-colors">
+        <div style={{marginTop: '56px', textAlign: 'center'}}>
+          <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '15px', marginBottom: '20px'}}>Ready to release a book into the world?</p>
+          <a href="/submit" style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none', display: 'inline-block'}}>
             Release a book
           </a>
         </div>
-
       </section>
 
-      <footer className="text-center py-12 text-sm text-[#888780]">
-        <p className="mb-4">A life beyond the page.</p>
-        <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#888780] hover:text-[#2C2C2A] transition-colors">
+      <footer style={{textAlign: 'center', padding: '48px 32px', fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', marginTop: '48px'}}>
+        <p style={{marginBottom: '16px'}}>A life beyond the page.</p>
+        <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" style={{display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#8D3F2F', textDecoration: 'none'}}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <circle cx="12" cy="12" r="4"/>

@@ -36,4 +36,9 @@ body {
   background-color: var(--paper);
   font-family: 'Toren', monospace;
   color: var(--chocolate);
+}@font-face {
+  font-family: 'Toren';
+  src: url('/fonts/Toren-Mono.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }

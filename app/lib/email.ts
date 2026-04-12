@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export async function sendNewBookEmail(title: string, author: string, code: string) {
   await resend.emails.send({
     from: 'Living Books <onboarding@resend.dev>',
-    to: 'hello@hellosopshiespeaking.com',
+    to: 'hello@hellosophiespeaking.com',
     subject: `New book submitted: ${title}`,
     html: `
       <div style="font-family: monospace; color: #533021; padding: 32px;">
@@ -24,7 +24,7 @@ export async function sendNewBookEmail(title: string, author: string, code: stri
 export async function sendNewReflectionEmail(bookTitle: string, readerName: string, location: string, reflection: string) {
   await resend.emails.send({
     from: 'Living Books <onboarding@resend.dev>',
-    to: 'hello@hellosopshiespeaking.com',
+    to: 'hello@hellosophiespeaking.com',
     subject: `New reflection on ${bookTitle}`,
     html: `
       <div style="font-family: monospace; color: #533021; padding: 32px;">

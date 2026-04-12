@@ -1,18 +1,15 @@
 'use client'
 import { supabase } from './supabase'
-import { useRouter } from 'next/navigation'
 
-export default function AdminActions({ bookId }: { bookId: string }) {
-  const router = useRouter()
-
+export default function AdminActions({ bookId, onAction }: { bookId: string, onAction: () => Promise<void> }) {
   async function approve() {
     await supabase.from('books').update({ status: 'approved' }).eq('id', bookId)
-    router.refresh()
+    await onAction()
   }
 
   async function reject() {
     await supabase.from('books').update({ status: 'rejected' }).eq('id', bookId)
-    router.refresh()
+    await onAction()
   }
 
   return (

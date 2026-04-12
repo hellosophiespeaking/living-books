@@ -2,7 +2,7 @@ import { supabase } from '../lib/supabase'
 import Link from 'next/link'
 
 export default async function Library() {
-  const { data: books } = await supabase.from('books').select('*')
+  const { data: books } = await supabase.from('books').select('*').eq('status', 'approved')
 
   return (
     <main className="min-h-screen" style={{backgroundColor: '#FAF6EE'}}>

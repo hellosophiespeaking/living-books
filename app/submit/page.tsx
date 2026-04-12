@@ -26,10 +26,15 @@ export default function SubmitBook() {
   const [code, setCode] = useState('')
 
   async function handleSubmit() {
-    if (!title || !author || !yourName) {
-      setMessage('Please fill in all required fields.')
-      return
-    }
+   const { error } = await supabase
+  .from('books')
+  .insert({
+    title,
+    author,
+    description,
+    slug,
+    code: newCode,
+  })
 
     const newCode = await generateCode()
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')

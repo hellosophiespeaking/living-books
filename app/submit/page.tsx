@@ -26,20 +26,15 @@ export default function SubmitBook() {
   const [code, setCode] = useState('')
 
   async function handleSubmit() {
-   const { error } = await supabase
-  .from('books')
-  .insert({
-    title,
-    author,
-    description,
-    slug,
-    code: newCode,
-  })
+    if (!title || !author || !yourName) {
+      setMessage('Please fill in all required fields.')
+      return
+    }
 
     const newCode = await generateCode()
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 
-    const { error } = await supabase
+    const { error: insertError } = await supabase
       .from('books')
       .insert({
         title,
@@ -47,12 +42,24 @@ export default function SubmitBook() {
         description,
         slug,
         code: newCode,
+        status: 'pending',
       })
 
-    if (error) {
+    if (insertError) {
       setMessage('Something went wrong. Please try again.')
       return
     }
+
+    await fetch('/api/notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'new_book',
+        title,
+        author,
+        code: newCode,
+      })
+    })
 
     setCode(newCode)
     setSubmitted(true)
@@ -60,17 +67,19 @@ export default function SubmitBook() {
 
   if (submitted) {
     return (
-      <main className="min-h-screen bg-[#FAF8F4] flex flex-col items-center justify-center px-8">
-        <a href="/" className="font-serif text-xl text-[#2C2C2A] mb-16">Living Books</a>
-        <div className="w-full max-w-sm text-center">
-          <p className="text-xs uppercase tracking-widest text-[#888780] mb-4">Your book is registered</p>
-          <h1 className="font-serif text-4xl text-[#2C2C2A] mb-6">{title}</h1>
-          <p className="text-[#5F5E5A] mb-12">Write this code inside the front cover of your book before releasing it into the world.</p>
-          <div className="border border-[#D3D1C7] py-8 px-12 mb-12">
-            <p className="text-xs uppercase tracking-widest text-[#888780] mb-3">Your book code</p>
-            <p className="font-serif text-4xl text-[#2C2C2A] tracking-widest">{code}</p>
+      <main className="min-h-screen" style={{backgroundColor: '#FAF6EE', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
+        <a href="/">
+          <img src="/Logo_Chocolate.png" alt="Living Books" style={{height: '32px', marginBottom: '48px'}} />
+        </a>
+        <div style={{width: '100%', maxWidth: '400px', textAlign: 'center'}}>
+          <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '8px'}}>Your book is registered</p>
+          <h1 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '16px'}}>{title}</h1>
+          <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', lineHeight: '1.6', marginBottom: '32px'}}>Write this code inside the front cover of your book before releasing it into the world.</p>
+          <div style={{border: '1px solid #8D3F2F', padding: '32px', marginBottom: '32px'}}>
+            <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px'}}>Your book code</p>
+            <p style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', letterSpacing: '0.1em'}}>{code}</p>
           </div>
-          <a href="/library" className="text-sm text-[#888780] underline hover:text-[#2C2C2A] transition-colors">
+          <a href="/library" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', textDecoration: 'underline'}}>
             View the library
           </a>
         </div>
@@ -79,52 +88,54 @@ export default function SubmitBook() {
   }
 
   return (
-    <main className="min-h-screen bg-[#FAF8F4] flex flex-col items-center justify-center px-8">
-      <a href="/" className="font-serif text-xl text-[#2C2C2A] mb-16">Living Books</a>
-      <div className="w-full max-w-sm">
-        <p className="text-xs uppercase tracking-widest text-[#888780] mb-2">Release a book</p>
-        <h1 className="font-serif text-3xl text-[#2C2C2A] mb-4">Submit a book</h1>
-        <p className="text-sm text-[#888780] mb-8 leading-relaxed">
-          Every book submitted becomes part of the Living Books library. You will receive a unique code to write inside the cover before releasing it.
+    <main className="min-h-screen" style={{backgroundColor: '#FAF6EE', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
+      <a href="/">
+        <img src="/Logo_Chocolate.png" alt="Living Books" style={{height: '32px', marginBottom: '48px'}} />
+      </a>
+      <div style={{width: '100%', maxWidth: '480px'}}>
+        <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '8px'}}>Release a book</p>
+        <h1 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '8px'}}>Submit a book</h1>
+        <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '14px', lineHeight: '1.6', marginBottom: '32px'}}>
+          Every book submitted becomes part of the Living Books archive. You will receive a unique code to write inside the cover before releasing it.
         </p>
-        <div className="flex flex-col gap-4">
+        <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
           <input
             type="text"
             placeholder="Book title *"
             value={title}
             onChange={e => setTitle(e.target.value)}
-            className="border border-[#D3D1C7] bg-transparent px-4 py-3 text-sm text-[#2C2C2A] placeholder-[#888780] outline-none focus:border-[#2C2C2A] transition-colors"
+            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
           />
           <input
             type="text"
             placeholder="Author *"
             value={author}
             onChange={e => setAuthor(e.target.value)}
-            className="border border-[#D3D1C7] bg-transparent px-4 py-3 text-sm text-[#2C2C2A] placeholder-[#888780] outline-none focus:border-[#2C2C2A] transition-colors"
+            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
           />
           <textarea
             placeholder="A short description of the book"
             value={description}
             onChange={e => setDescription(e.target.value)}
             rows={4}
-            className="border border-[#D3D1C7] bg-transparent px-4 py-3 text-sm text-[#2C2C2A] placeholder-[#888780] outline-none focus:border-[#2C2C2A] transition-colors resize-none"
+            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%', resize: 'none'}}
           />
           <input
             type="text"
             placeholder="Your name *"
             value={yourName}
             onChange={e => setYourName(e.target.value)}
-            className="border border-[#D3D1C7] bg-transparent px-4 py-3 text-sm text-[#2C2C2A] placeholder-[#888780] outline-none focus:border-[#2C2C2A] transition-colors"
+            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
           />
           <button
             onClick={handleSubmit}
-            className="bg-[#2C2C2A] text-[#FAF8F4] px-8 py-4 text-sm tracking-wide hover:bg-[#444441] transition-colors mt-2"
+            style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', border: 'none', cursor: 'pointer', marginTop: '4px'}}
           >
             Submit book
           </button>
         </div>
         {message && (
-          <p className="text-sm text-[#5F5E5A] mt-6">{message}</p>
+          <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', marginTop: '16px'}}>{message}</p>
         )}
       </div>
     </main>

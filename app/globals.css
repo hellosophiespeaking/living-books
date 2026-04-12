@@ -1,3 +1,4 @@
+cat > app/globals.css << 'EOF'
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,14 +13,14 @@
 @font-face {
   font-family: 'Toren';
   src: url('/fonts/Toren-Mono.otf') format('opentype');
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'LaBelle';
   src: url('/fonts/(TRIAL)LaBelleEpoque-Alt.ttf') format('truetype');
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -36,9 +37,5 @@ body {
   background-color: var(--paper);
   font-family: 'Toren', monospace;
   color: var(--chocolate);
-}@font-face {
-  font-family: 'Toren';
-  src: url('/fonts/Toren-Mono.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
 }
+EOF

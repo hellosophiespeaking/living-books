@@ -2,19 +2,37 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export async function sendNewBookEmail(title: string, author: string, code: string) {
+export async function sendNewBookEmail(title: string, author: string, code: string, yourName: string, userEmail: string, location: string) {
+  // Email to you
   await resend.emails.send({
     from: 'Living Books <onboarding@resend.dev>',
     to: 'hello@hellosophiespeaking.com',
-    subject: `New book submitted: ${title}`,
+    subject: `New book registered: ${title}`,
     html: `
       <div style="font-family: monospace; color: #533021; padding: 32px;">
-        <h1 style="font-size: 24px; margin-bottom: 8px;">New book submitted</h1>
-        <p style="margin-bottom: 4px;"><strong>${title}</strong></p>
-        <p style="margin-bottom: 4px;">${author}</p>
+        <h1 style="font-size: 24px; margin-bottom: 8px;">New book registered</h1>
+        <p style="margin-bottom: 4px;"><strong>${title}</strong> by ${author}</p>
+        <p style="margin-bottom: 4px;">Registered by ${yourName} in ${location}</p>
+        <p style="margin-bottom: 4px;">Email: ${userEmail}</p>
         <p style="margin-bottom: 24px; color: #8D3F2F;">${code}</p>
-        <a href="https://livingbooksarchive.com/admin" style="background-color: #533021; color: #FAF6EE; padding: 12px 24px; text-decoration: none; font-size: 13px;">
-          Review in admin
+      </div>
+    `
+  })
+
+  // Email to user
+  await resend.emails.send({
+    from: 'Living Books <onboarding@resend.dev>',
+    to: userEmail,
+    subject: `Your book is registered — ${code}`,
+    html: `
+      <div style="font-family: monospace; color: #533021; padding: 32px; max-width: 480px;">
+        <h1 style="font-size: 24px; margin-bottom: 8px;">Your book is registered</h1>
+        <p style="margin-bottom: 16px;">Hi ${yourName}, <strong>${title}</strong> by ${author} is now part of the Living Books archive.</p>
+        <p style="margin-bottom: 8px;">Your book code is:</p>
+        <p style="font-size: 32px; letter-spacing: 0.1em; color: #8D3F2F; margin-bottom: 24px;"><strong>${code}</strong></p>
+        <p style="margin-bottom: 24px;">Write this inside the front cover before releasing it into the world.</p>
+        <a href="https://livingbooksarchive.com/library" style="background-color: #533021; color: #FAF6EE; padding: 12px 24px; text-decoration: none; font-size: 13px;">
+          View the library
         </a>
       </div>
     `

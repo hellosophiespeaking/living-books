@@ -21,12 +21,16 @@ export default function SubmitBook() {
   const [author, setAuthor] = useState('')
   const [description, setDescription] = useState('')
   const [yourName, setYourName] = useState('')
+  const [email, setEmail] = useState('')
+  const [location, setLocation] = useState('')
+  const [newsletter, setNewsletter] = useState(false)
+  const [journeyTracking, setJourneyTracking] = useState(false)
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [code, setCode] = useState('')
 
   async function handleSubmit() {
-    if (!title || !author || !yourName) {
+    if (!title || !author || !yourName || !email || !location) {
       setMessage('Please fill in all required fields.')
       return
     }
@@ -42,11 +46,14 @@ export default function SubmitBook() {
         description,
         slug,
         code: newCode,
-        status: 'pending',
+        email,
+        location,
+        newsletter_opt_in: newsletter,
+        journey_tracking_opt_in: journeyTracking,
       })
 
     if (insertError) {
-      setMessage('Something went wrong. Please try again.')
+      setMessage('Something went wrong: ' + insertError.message)
       return
     }
 
@@ -58,6 +65,9 @@ export default function SubmitBook() {
         title,
         author,
         code: newCode,
+        email,
+        yourName,
+        location,
       })
     })
 
@@ -79,6 +89,7 @@ export default function SubmitBook() {
             <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px'}}>Your book code</p>
             <p style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', letterSpacing: '0.1em'}}>{code}</p>
           </div>
+          <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '13px', lineHeight: '1.6', marginBottom: '24px'}}>We've sent your book code to {email}.</p>
           <a href="/library" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', textDecoration: 'underline'}}>
             View the library
           </a>
@@ -94,9 +105,9 @@ export default function SubmitBook() {
       </a>
       <div style={{width: '100%', maxWidth: '480px'}}>
         <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '8px'}}>Release a book</p>
-        <h1 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '8px'}}>Submit a book</h1>
+        <h1 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '8px'}}>Register a book</h1>
         <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '14px', lineHeight: '1.6', marginBottom: '32px'}}>
-          Every book submitted becomes part of the Living Books archive. You will receive a unique code to write inside the cover before releasing it.
+          Every book registered becomes part of the Living Books archive. You will receive a unique code to write inside the cover before releasing it into the world.
         </p>
         <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
           <input
@@ -127,11 +138,45 @@ export default function SubmitBook() {
             onChange={e => setYourName(e.target.value)}
             style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
           />
+          <input
+            type="email"
+            placeholder="Your email *"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
+          />
+          <input
+            type="text"
+            placeholder="Your location (city, country) *"
+            value={location}
+            onChange={e => setLocation(e.target.value)}
+            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
+          />
+          <div style={{display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px'}}>
+            <label style={{display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer'}}>
+              <input
+                type="checkbox"
+                checked={newsletter}
+                onChange={e => setNewsletter(e.target.checked)}
+                style={{accentColor: '#533021', width: '16px', height: '16px'}}
+              />
+              <span style={{fontFamily: 'Toren', fontSize: '13px', color: '#533021', lineHeight: '1.5'}}>Keep me updated with Living Books news</span>
+            </label>
+            <label style={{display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer'}}>
+              <input
+                type="checkbox"
+                checked={journeyTracking}
+                onChange={e => setJourneyTracking(e.target.checked)}
+                style={{accentColor: '#533021', width: '16px', height: '16px'}}
+              />
+              <span style={{fontFamily: 'Toren', fontSize: '13px', color: '#533021', lineHeight: '1.5'}}>Notify me when this book finds its next reader</span>
+            </label>
+          </div>
           <button
             onClick={handleSubmit}
-            style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', border: 'none', cursor: 'pointer', marginTop: '4px'}}
+            style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', border: 'none', cursor: 'pointer', marginTop: '8px'}}
           >
-            Submit book
+            Register book
           </button>
         </div>
         {message && (

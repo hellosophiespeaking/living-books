@@ -60,17 +60,8 @@ export default function ReflectionForm({ bookId }: { bookId: string }) {
         <p style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px', marginBottom: '8px'}}>Thank you for your reflection.</p>
         <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '14px', marginBottom: '32px'}}>The book journeys on.</p>
         <div style={{padding: '24px', border: '1px solid #C6D8FF', backgroundColor: '#FFFBCA'}}>
-          <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '13px', lineHeight: '1.6', marginBottom: '16px'}}>
-            Living Books is community-funded. If you'd like to help keep the books travelling, consider a small contribution.
-          </p>
-          
-       href="https://ko-fi.com/livingbooks"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}
-          >
-            Keep the books travelling
-          </a>
+          <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '13px', lineHeight: '1.6', marginBottom: '16px'}}>Living Books is community-funded. If you would like to help keep the books travelling, consider a small contribution.</p>
+          <a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}>Keep the books travelling</a>
         </div>
       </div>
     )

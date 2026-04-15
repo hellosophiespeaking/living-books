@@ -74,11 +74,11 @@ export default function Home() {
 
       <section style={{backgroundColor: '#FFFBCA', padding: '64px 32px', textAlign: 'center'}}>
         <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '16px'}}>Support the community</p>
-        <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '16px'}}>Keep the books travelling</h2>
-        <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '15px', lineHeight: '1.7', maxWidth: '420px', margin: '0 auto 32px'}}>
-          Living Books is community-funded. Every contribution helps keep books moving around the world.
+        <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '16px'}}>Buy me a coffee ☕</h2>
+        <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '15px', lineHeight: '1.7', maxWidth: '480px', margin: '0 auto 32px'}}>
+          I built this because I couldn't stop wondering where my books ended up. If you love it too, buy me a coffee — it helps keep the lights on and the books moving.
         </p>
-        <a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none', display: 'inline-block'}}>Support on Ko-fi</a>
+        <a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none', display: 'inline-block'}}>Buy me a coffee</a>
       </section>
 
       <footer style={{textAlign: 'center', padding: '48px 32px', fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px'}}>

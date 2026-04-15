@@ -98,9 +98,7 @@ export default function SubmitBook() {
               Living Books is community-funded. If you'd like to help keep the books travelling, consider a small contribution.
             </p>
             
-              <a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}>Keep the books travelling</a>
-              Keep the books travelling
-            </a>
+<a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}>Keep the books travelling</a>
           </div>
           <a href="/library" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', textDecoration: 'underline'}}>
             View the library

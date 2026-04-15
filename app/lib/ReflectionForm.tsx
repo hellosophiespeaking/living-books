@@ -64,7 +64,7 @@ export default function ReflectionForm({ bookId }: { bookId: string }) {
             Living Books is community-funded. If you'd like to help keep the books travelling, consider a small contribution.
           </p>
           
-            href="https://ko-fi.com/livingbooks"
+       href="https://ko-fi.com/livingbooks"
             target="_blank"
             rel="noopener noreferrer"
             style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}

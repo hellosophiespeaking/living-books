@@ -36,7 +36,7 @@ export default function SubmitBook() {
     }
 
     const newCode = await generateCode()
-    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + newCode.toLowerCase()
 
     const { error: insertError } = await supabase
       .from('books')
@@ -84,12 +84,28 @@ export default function SubmitBook() {
         <div style={{width: '100%', maxWidth: '400px', textAlign: 'center'}}>
           <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '8px'}}>Your book is registered</p>
           <h1 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '16px'}}>{title}</h1>
-          <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', lineHeight: '1.6', marginBottom: '32px'}}>Write this code inside the front cover of your book before releasing it into the world.</p>
+          <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', lineHeight: '1.6', marginBottom: '8px'}}>Write this inside the front cover of your book before releasing it into the world:</p>
+          <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', lineHeight: '1.8', marginBottom: '32px', fontStyle: 'italic'}}>
+            "I am not lost — I am living. Track my journey at livingbooksarchive.com using code {code}"
+          </p>
           <div style={{border: '1px solid #8D3F2F', padding: '32px', marginBottom: '32px'}}>
             <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px'}}>Your book code</p>
             <p style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', letterSpacing: '0.1em'}}>{code}</p>
           </div>
-          <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '13px', lineHeight: '1.6', marginBottom: '24px'}}>We've sent your book code to {email}.</p>
+          <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '13px', lineHeight: '1.6', marginBottom: '32px'}}>We've sent your book code to {email}.</p>
+          <div style={{marginBottom: '32px', padding: '24px', border: '1px solid #C6D8FF', backgroundColor: '#FFFBCA'}}>
+            <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '13px', lineHeight: '1.6', marginBottom: '16px'}}>
+              Living Books is community-funded. If you'd like to help keep the books travelling, consider a small contribution.
+            </p>
+            
+              href="https://ko-fi.com/livingbooks"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}
+            >
+              Keep the books travelling
+            </a>
+          </div>
           <a href="/library" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', textDecoration: 'underline'}}>
             View the library
           </a>

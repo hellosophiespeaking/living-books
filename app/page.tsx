@@ -23,13 +23,13 @@ export default function Home() {
 
         <style>{`
           @keyframes drift {
-            0% { transform: translate(-60%, 40%) rotate(0deg); }
-            50% { transform: translate(-40%, -40%) rotate(5deg); }
-            100% { transform: translate(-60%, 40%) rotate(0deg); }
+            0% { transform: translate(-150%, 80%) rotate(-5deg); }
+            50% { transform: translate(80%, -80%) rotate(5deg); }
+            100% { transform: translate(-150%, 80%) rotate(-5deg); }
           }
         `}</style>
 
-        <div style={{position: 'absolute', width: '60vw', maxWidth: '600px', opacity: 0.06, pointerEvents: 'none', zIndex: 0, animation: 'drift 20s ease-in-out infinite', left: '50%', top: '50%'}}>
+        <div style={{position: 'absolute', width: '30vw', maxWidth: '300px', opacity: 0.15, pointerEvents: 'none', zIndex: 0, animation: 'drift 25s ease-in-out infinite', left: '50%', top: '50%'}}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" style={{width: '100%', height: 'auto'}}>
             <defs><style>{`.st0 { fill: #195693; }`}</style></defs>
             <g>
@@ -52,14 +52,14 @@ export default function Home() {
           </svg>
         </div>
 
-        <div style={{position: 'relative', zIndex: 1}}>
+        <div style={{position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>
           <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '16px'}}>
             A travelling book community
           </p>
           <h1 style={{fontFamily: 'Archivo', color: '#533021', fontSize: 'clamp(40px, 8vw, 80px)', lineHeight: '1', marginBottom: '24px', maxWidth: '800px'}}>
             Books should never sit still.
           </h1>
-          <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '16px', maxWidth: '420px', lineHeight: '1.7', marginBottom: '40px'}}>
+          <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '16px', maxWidth: '420px', lineHeight: '1.7', marginBottom: '40px', textAlign: 'center', margin: '0 auto 40px'}}>
             A global community where books live full lives — read, experienced and released.
           </p>
           <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center'}}>

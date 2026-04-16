@@ -73,7 +73,7 @@ export default function Home() {
       </section>
 
       <section style={{backgroundColor: '#FFFBCA', padding: '64px 32px', textAlign: 'center'}}>
-        <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '16px'}}>Support the community ☕</h2>
+        <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '16px'}}>Support the community </h2>
         <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '15px', lineHeight: '1.7', maxWidth: '480px', margin: '0 auto 32px'}}>
           I built this because I couldn't stop wondering where my books ended up. If you love it too, buy me a coffee — it helps keep the lights on and the books moving.
         </p>

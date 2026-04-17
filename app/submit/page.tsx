@@ -16,6 +16,19 @@ async function generateCode() {
   return `LB-${String(num).padStart(5, '0')}`
 }
 
+async function getCoordinates(location: string) {
+  const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+  const response = await fetch(
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(location)}.json?access_token=${token}&limit=1`
+  )
+  const data = await response.json()
+  if (data.features && data.features.length > 0) {
+    const [longitude, latitude] = data.features[0].center
+    return { latitude, longitude }
+  }
+  return null
+}
+
 export default function SubmitBook() {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
@@ -38,7 +51,7 @@ export default function SubmitBook() {
     const newCode = await generateCode()
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + newCode.toLowerCase()
 
-    const { error: insertError } = await supabase
+    const { error: insertError, data: newBook } = await supabase
       .from('books')
       .insert({
         title,
@@ -51,11 +64,23 @@ export default function SubmitBook() {
         newsletter_opt_in: newsletter,
         journey_tracking_opt_in: journeyTracking,
       })
+      .select()
+      .single()
 
     if (insertError) {
       setMessage('Something went wrong: ' + insertError.message)
       return
     }
+
+    // Create first journey entry from registration location
+    const coords = await getCoordinates(location)
+    await supabase.from('journeys').insert({
+      book_id: newBook.id,
+      reader_name: yourName,
+      location,
+      latitude: coords?.latitude,
+      longitude: coords?.longitude,
+    })
 
     await fetch('/api/notify', {
       method: 'POST',
@@ -97,8 +122,7 @@ export default function SubmitBook() {
             <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '13px', lineHeight: '1.6', marginBottom: '16px'}}>
               Living Books is community-funded. If you'd like to help keep the books travelling, consider a small contribution.
             </p>
-            
-<a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}>Keep the books travelling</a>
+            <a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}>Keep the books travelling</a>
           </div>
           <a href="/library" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', textDecoration: 'underline'}}>
             View the library

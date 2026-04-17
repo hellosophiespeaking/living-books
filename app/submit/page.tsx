@@ -29,6 +29,20 @@ async function getCoordinates(location: string) {
   return null
 }
 
+async function getBookCover(title: string, author: string) {
+  try {
+    const query = encodeURIComponent(`${title} ${author}`)
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=1`)
+    const data = await response.json()
+    if (data.items && data.items[0]?.volumeInfo?.imageLinks?.thumbnail) {
+      return data.items[0].volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')
+    }
+  } catch (e) {
+    return null
+  }
+  return null
+}
+
 export default function SubmitBook() {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
@@ -51,6 +65,8 @@ export default function SubmitBook() {
     const newCode = await generateCode()
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + newCode.toLowerCase()
 
+    const coverUrl = await getBookCover(title, author)
+
     const { error: insertError, data: newBook } = await supabase
       .from('books')
       .insert({
@@ -61,6 +77,7 @@ export default function SubmitBook() {
         code: newCode,
         email,
         location,
+        cover_url: coverUrl,
         newsletter_opt_in: newsletter,
         journey_tracking_opt_in: journeyTracking,
       })
@@ -72,7 +89,6 @@ export default function SubmitBook() {
       return
     }
 
-    // Create first journey entry from registration location
     const coords = await getCoordinates(location)
     await supabase.from('journeys').insert({
       book_id: newBook.id,

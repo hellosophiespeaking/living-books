@@ -97,7 +97,8 @@ export default function SubmitBook() {
       latitude: coords?.latitude,
       longitude: coords?.longitude,
     })
-
+console.log('Calling notify API with newsletter:', newsletter)
+await fetch('/api/notify', {
     await fetch('/api/notify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

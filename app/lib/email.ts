@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 const AUDIENCE_ID = '479e3145-dd38-476b-932c-529ceb705947'
 
 export async function sendNewBookEmail(title: string, author: string, code: string, yourName: string, userEmail: string, location: string, newsletter: boolean) {
-  if (newsletter) {
+ if (newsletter) {
     try {
       const contact = await resend.contacts.create({
         email: userEmail,
@@ -13,9 +13,9 @@ export async function sendNewBookEmail(title: string, author: string, code: stri
         audienceId: AUDIENCE_ID,
         unsubscribed: false,
       })
-      console.log('Contact created:', contact)
+      console.log('Contact result:', JSON.stringify(contact))
     } catch (err) {
-      console.error('Failed to create contact:', err)
+      console.error('Contact error:', JSON.stringify(err))
     }
   }
 

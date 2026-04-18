@@ -6,12 +6,17 @@ const AUDIENCE_ID = '479e3145-dd38-476b-932c-529ceb705947'
 
 export async function sendNewBookEmail(title: string, author: string, code: string, yourName: string, userEmail: string, location: string, newsletter: boolean) {
   if (newsletter) {
-    await resend.contacts.create({
-      email: userEmail,
-      firstName: yourName,
-      audienceId: AUDIENCE_ID,
-      unsubscribed: false,
-    })
+    try {
+      const contact = await resend.contacts.create({
+        email: userEmail,
+        firstName: yourName,
+        audienceId: AUDIENCE_ID,
+        unsubscribed: false,
+      })
+      console.log('Contact created:', contact)
+    } catch (err) {
+      console.error('Failed to create contact:', err)
+    }
   }
 
   await resend.emails.send({

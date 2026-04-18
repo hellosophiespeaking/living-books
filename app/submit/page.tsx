@@ -33,6 +33,7 @@ async function getBookCover(title: string, author: string) {
   try {
     const query = encodeURIComponent(`${title} ${author}`)
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=1`)
+    if (!response.ok) return null
     const data = await response.json()
     if (data.items && data.items[0]?.volumeInfo?.imageLinks?.thumbnail) {
       return data.items[0].volumeInfo.imageLinks.thumbnail.replace('http://', 'https://')

@@ -102,15 +102,16 @@ export default function SubmitBook() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-  type: 'new_book',
-  title,
-  author,
-  code: newCode,
-  email,
-  yourName,
-  location,
-  newsletter,
-})
+        type: 'new_book',
+        title,
+        author,
+        code: newCode,
+        email,
+        yourName,
+        location,
+        newsletter,
+      })
+    })
 
     setCode(newCode)
     setSubmitted(true)

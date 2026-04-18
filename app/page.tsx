@@ -68,11 +68,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section style={{backgroundColor: '#C6D8FF', padding: '64px 32px'}}>
+  <section style={{backgroundColor: '#C6D8FF', padding: '64px 32px'}}>
         <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', textAlign: 'center', marginBottom: '48px'}}>
           How books travel
         </h2>
-        <div style={{maxWidth: '800px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px', textAlign: 'center'}}>
+        <div style={{maxWidth: '800px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '32px', textAlign: 'center'}}>
           {[
             { step: "01", label: "Read" },
             { step: "02", label: "Experience" },

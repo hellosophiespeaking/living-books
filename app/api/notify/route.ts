@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
   const body = await request.json()
 
   if (body.type === 'new_book') {
-    await sendNewBookEmail(body.title, body.author, body.code, body.yourName, body.email, body.location)
+    await sendNewBookEmail(body.title, body.author, body.code, body.yourName, body.email, body.location, body.newsletter)
   }
 
   if (body.type === 'new_reflection') {

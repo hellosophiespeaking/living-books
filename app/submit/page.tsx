@@ -160,78 +160,27 @@ export default function SubmitBook() {
           Every book registered becomes part of the Living Books archive. You will receive a unique code to write inside the cover before releasing it into the world.
         </p>
         <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
-          <input
-            type="text"
-            placeholder="Book title *"
-            value={title}
-            onChange={e => setTitle(e.target.value)}
-            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
-          />
-          <input
-            type="text"
-            placeholder="Author *"
-            value={author}
-            onChange={e => setAuthor(e.target.value)}
-            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
-          />
-          <textarea
-            placeholder="A short description of the book"
-            value={description}
-            onChange={e => setDescription(e.target.value)}
-            rows={4}
-            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%', resize: 'none'}}
-          />
-          <input
-            type="text"
-            placeholder="Your name *"
-            value={yourName}
-            onChange={e => setYourName(e.target.value)}
-            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
-          />
-          <input
-            type="email"
-            placeholder="Your email *"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
-          />
-          <input
-            type="text"
-            placeholder="Your location (city, country) *"
-            value={location}
-            onChange={e => setLocation(e.target.value)}
-            style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}}
-          />
+          <input type="text" placeholder="Book title *" value={title} onChange={e => setTitle(e.target.value)} style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}} />
+          <input type="text" placeholder="Author *" value={author} onChange={e => setAuthor(e.target.value)} style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}} />
+          <textarea placeholder="A short description of the book" value={description} onChange={e => setDescription(e.target.value)} rows={4} style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%', resize: 'none'}} />
+          <input type="text" placeholder="Your name *" value={yourName} onChange={e => setYourName(e.target.value)} style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}} />
+          <input type="email" placeholder="Your email *" value={email} onChange={e => setEmail(e.target.value)} style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}} />
+          <input type="text" placeholder="Your location (city, country) *" value={location} onChange={e => setLocation(e.target.value)} style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}} />
           <div style={{display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px'}}>
             <label style={{display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer'}}>
-              <input
-                type="checkbox"
-                checked={newsletter}
-                onChange={e => setNewsletter(e.target.checked)}
-                style={{accentColor: '#533021', width: '16px', height: '16px'}}
-              />
+              <input type="checkbox" checked={newsletter} onChange={e => setNewsletter(e.target.checked)} style={{accentColor: '#533021', width: '16px', height: '16px'}} />
               <span style={{fontFamily: 'Toren', fontSize: '13px', color: '#533021', lineHeight: '1.5'}}>Keep me updated with Living Books news</span>
             </label>
             <label style={{display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer'}}>
-              <input
-                type="checkbox"
-                checked={journeyTracking}
-                onChange={e => setJourneyTracking(e.target.checked)}
-                style={{accentColor: '#533021', width: '16px', height: '16px'}}
-              />
+              <input type="checkbox" checked={journeyTracking} onChange={e => setJourneyTracking(e.target.checked)} style={{accentColor: '#533021', width: '16px', height: '16px'}} />
               <span style={{fontFamily: 'Toren', fontSize: '13px', color: '#533021', lineHeight: '1.5'}}>Notify me when this book finds its next reader</span>
             </label>
           </div>
-          <button
-            onClick={handleSubmit}
-            style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', border: 'none', cursor: 'pointer', marginTop: '8px'}}
-          >
+          <button onClick={handleSubmit} style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', border: 'none', cursor: 'pointer', marginTop: '8px'}}>
             Register book
           </button>
         </div>
-        {message && (
-          <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', marginTop: '16px'}}>{message}</p>
-        )}
+        {message && <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', marginTop: '16px'}}>{message}</p>}
       </div>
     </main>
   )

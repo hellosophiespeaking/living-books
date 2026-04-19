@@ -2,7 +2,7 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-const AUDIENCE_ID = '479e3145-dd38-476b-932c-529ceb705947'
+const AUDIENCE_ID = 'be080464-c071-4644-97d5-07315d57b949'
 
 export async function sendNewBookEmail(title: string, author: string, code: string, yourName: string, userEmail: string, location: string, newsletter: boolean) {
  if (newsletter) {

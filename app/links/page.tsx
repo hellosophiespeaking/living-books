@@ -54,9 +54,8 @@ export default function Links() {
           🗺️ Explore the library
         </a>
 
-        <a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" className="link-btn" style={{backgroundColor: '#FFFBCA', color: '#533021'}}>
-          ☕ Support the community
-        </a>
+<a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" className="link-btn" style={{backgroundColor: '#FFFBCA', color: '#533021'}}>
+          ⭐ Support the community
 
         <a href="https://instagram.com/livingbooksarchive" target="_blank" rel="noopener noreferrer" style={{marginTop: '8px', display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', textDecoration: 'none', letterSpacing: '0.05em'}}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

@@ -34,22 +34,6 @@ export async function sendNewBookEmail(title: string, author: string, code: stri
   })
 }
 
-export async function sendBookRequestEmail(bookTitle: string, bookOwnerEmail: string, requesterName: string, requesterAddress: string) {
-  await resend.emails.send({
-    from: 'Living Books <onboarding@resend.dev>',
-    to: bookOwnerEmail,
-    subject: `Someone wants your book — ${bookTitle}`,
-    html: `<div style="font-family: monospace; color: #533021; padding: 32px; max-width: 480px;">
-      <h1 style="font-size: 24px; margin-bottom: 8px;">Your book has a new home</h1>
-      <p style="margin-bottom: 16px;"><strong>${requesterName}</strong> has requested a copy of <strong>${bookTitle}</strong> and is waiting for it to arrive.</p>
-      <p style="margin-bottom: 8px;">Please send the book to:</p>
-      <div style="padding: 16px; border-left: 3px solid #8D3F2F; background-color: #FAF6EE; white-space: pre-line; margin-bottom: 24px; font-size: 15px;">${requesterAddress}</div>
-      <p style="margin-bottom: 24px; color: #8D3F2F; font-size: 13px;">Once posted, the book is marked as travelling and the journey continues. Thank you for keeping it alive.</p>
-      <a href="https://livingbooksarchive.com/library" style="background-color: #533021; color: #FAF6EE; padding: 12px 24px; text-decoration: none; font-size: 13px;">View the library</a>
-    </div>`,
-  })
-}
-
 export async function sendNewReflectionEmail(bookTitle: string, readerName: string, location: string, reflection: string) {
   await resend.emails.send({
     from: 'Living Books <onboarding@resend.dev>',

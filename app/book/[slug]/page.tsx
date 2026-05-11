@@ -1,7 +1,6 @@
 import { supabase } from '../../lib/supabase'
 import ReflectionForm from '../../lib/ReflectionForm'
 import BookMap from '../../lib/BookMap'
-import RequestForm from '../../lib/RequestForm'
 
 export default async function BookPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -85,10 +84,6 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
               ))}
             </div>
           </>
-        )}
-
-        {book.available_to_send && (
-          <RequestForm bookId={book.id} bookTitle={book.title} bookOwnerEmail={book.email} />
         )}
 
         <ReflectionForm bookId={book.id} />

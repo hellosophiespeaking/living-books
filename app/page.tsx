@@ -87,51 +87,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section style={{padding: '80px 32px', backgroundColor: '#FAF6EE'}}>
-        <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', textAlign: 'center', marginBottom: '16px'}}>
-          Three ways to join
-        </h2>
-        <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '15px', textAlign: 'center', marginBottom: '56px'}}>
-          Everyone has a role to play.
-        </p>
-        <div style={{maxWidth: '960px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2px'}}>
-
-          <div style={{backgroundColor: '#FFFFFF', padding: '40px 32px', display: 'flex', flexDirection: 'column', gap: '16px'}}>
-            <span style={{fontFamily: 'LaBelle', color: '#8D3F2F', fontSize: '14px', letterSpacing: '0.1em'}}>01</span>
-            <h3 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '26px', margin: 0}}>Found a book?</h3>
-            <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', lineHeight: '1.7', margin: 0, flexGrow: 1}}>
-              If you've picked up a Living Book — at a street library, a café, or from a friend — enter the code inside the cover. Record where you found it. The journey continues.
-            </p>
-            <a href="/" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'underline'}}>
-              Enter your code above ↑
-            </a>
-          </div>
-
-          <div style={{backgroundColor: '#FFFBCA', padding: '40px 32px', display: 'flex', flexDirection: 'column', gap: '16px'}}>
-            <span style={{fontFamily: 'LaBelle', color: '#8D3F2F', fontSize: '14px', letterSpacing: '0.1em'}}>02</span>
-            <h3 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '26px', margin: 0}}>Have a book to release?</h3>
-            <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', lineHeight: '1.7', margin: 0, flexGrow: 1}}>
-              Register your book, write the code inside the cover, and set it free — at a street library, a charity shop, or by sending it directly to someone who requests it.
-            </p>
-            <a href="/submit" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'underline'}}>
-              Register a book →
-            </a>
-          </div>
-
-          <div style={{backgroundColor: '#C6D8FF', padding: '40px 32px', display: 'flex', flexDirection: 'column', gap: '16px'}}>
-            <span style={{fontFamily: 'LaBelle', color: '#8D3F2F', fontSize: '14px', letterSpacing: '0.1em'}}>03</span>
-            <h3 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '26px', margin: 0}}>Want a book sent to you?</h3>
-            <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '14px', lineHeight: '1.7', margin: 0, flexGrow: 1}}>
-              Browse books whose owners are willing to post them on. Request one — just leave your name and address. The owner will send it your way, and the book travels on.
-            </p>
-            <a href="/library?available=true" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'underline'}}>
-              Browse available books →
-            </a>
-          </div>
-
-        </div>
-      </section>
-
       <section style={{backgroundColor: '#FFFBCA', padding: '64px 32px', textAlign: 'center'}}>
         <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '16px'}}>Support the community!</h2>
 <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '15px', lineHeight: '1.7', maxWidth: '480px', margin: '0 auto 32px'}}>

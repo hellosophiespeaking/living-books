@@ -53,6 +53,7 @@ export default function SubmitBook() {
   const [location, setLocation] = useState('')
   const [newsletter, setNewsletter] = useState(false)
   const [journeyTracking, setJourneyTracking] = useState(false)
+  const [availableToSend, setAvailableToSend] = useState(false)
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [code, setCode] = useState('')
@@ -81,6 +82,7 @@ export default function SubmitBook() {
         cover_url: coverUrl,
         newsletter_opt_in: newsletter,
         journey_tracking_opt_in: journeyTracking,
+        available_to_send: availableToSend,
       })
       .select()
       .single()
@@ -169,6 +171,23 @@ export default function SubmitBook() {
           <input type="text" placeholder="Your name *" value={yourName} onChange={e => setYourName(e.target.value)} style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}} />
           <input type="email" placeholder="Your email *" value={email} onChange={e => setEmail(e.target.value)} style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}} />
           <input type="text" placeholder="Your location (city, country) *" value={location} onChange={e => setLocation(e.target.value)} style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '14px', color: '#533021', outline: 'none', width: '100%'}} />
+          <div style={{marginTop: '8px', padding: '20px', border: '1px solid #C6D8FF', backgroundColor: '#FFFFFF'}}>
+            <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px'}}>How are you releasing this book?</p>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+              <label style={{display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer'}}>
+                <input type="radio" name="releaseMethod" checked={!availableToSend} onChange={() => setAvailableToSend(false)} style={{accentColor: '#533021', marginTop: '3px', flexShrink: 0}} />
+                <span style={{fontFamily: 'Toren', fontSize: '13px', color: '#533021', lineHeight: '1.5'}}>
+                  I'll leave it at a street library or charity shop
+                </span>
+              </label>
+              <label style={{display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer'}}>
+                <input type="radio" name="releaseMethod" checked={availableToSend} onChange={() => setAvailableToSend(true)} style={{accentColor: '#533021', marginTop: '3px', flexShrink: 0}} />
+                <span style={{fontFamily: 'Toren', fontSize: '13px', color: '#533021', lineHeight: '1.5'}}>
+                  I'd like to send it directly to someone who requests it
+                </span>
+              </label>
+            </div>
+          </div>
           <div style={{display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px'}}>
             <label style={{display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer'}}>
               <input type="checkbox" checked={newsletter} onChange={e => setNewsletter(e.target.checked)} style={{accentColor: '#533021', width: '16px', height: '16px'}} />

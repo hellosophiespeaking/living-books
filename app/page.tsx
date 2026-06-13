@@ -1,4 +1,17 @@
-export default function Home() {
+export const revalidate = 0
+
+import { supabase } from './lib/supabase'
+
+async function getBookCount() {
+  const { count } = await supabase
+    .from('books')
+    .select('*', { count: 'exact', head: true })
+  return count || 0
+}
+
+export default async function Home() {
+  const bookCount = await getBookCount()
+
   return (
     <main className="min-h-screen" style={{backgroundColor: '#FAF6EE'}}>
 
@@ -43,16 +56,13 @@ export default function Home() {
           <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '16px', maxWidth: '420px', lineHeight: '1.7', marginBottom: '40px', textAlign: 'center', margin: '0 auto 40px'}}>
             A global community where books live full lives — read, experienced and released.
           </p>
-          <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center'}}>
-            <a href="/library" style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none', display: 'inline-block'}}>
-              Explore the library
-            </a>
-            <a href="/submit" style={{border: '1px solid #533021', color: '#533021', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none', display: 'inline-block'}}>
-              Release a book
-            </a>
+
+          <div style={{display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '40px', backgroundColor: '#FFFBCA', padding: '12px 24px'}}>
+            <span style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px', fontWeight: '800'}}>{bookCount}</span>
+            <span style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', letterSpacing: '0.1em'}}>books currently travelling</span>
           </div>
 
-          <div style={{marginTop: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
+          <div style={{marginTop: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
             <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase'}}>Have a book code?</p>
             <form action="/find" method="GET" style={{display: 'flex', gap: '12px'}}>
               <input
@@ -68,7 +78,49 @@ export default function Home() {
         </div>
       </section>
 
-  <section style={{backgroundColor: '#C6D8FF', padding: '64px 32px'}}>
+      <section style={{backgroundColor: '#FAF6EE', padding: '64px 32px'}}>
+        <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '16px'}}>Get involved</p>
+        <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', textAlign: 'center', marginBottom: '48px'}}>Three ways to participate</h2>
+        <div style={{maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px'}}>
+
+          <div style={{backgroundColor: '#FFFFFF', padding: '32px', borderTop: '3px solid #C6D8FF'}}>
+            <p style={{fontFamily: 'Toren', color: '#195693', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px'}}>01 — Find</p>
+            <h3 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px', marginBottom: '12px'}}>Found a book?</h3>
+            <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '14px', lineHeight: '1.7', marginBottom: '24px'}}>Enter the LB code from inside the cover to see where this book has been — and add your chapter to its story.</p>
+            <form action="/find" method="GET" style={{display: 'flex', gap: '12px'}}>
+              <input
+                name="code"
+                placeholder="LB-00001"
+                style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '10px 14px', fontFamily: 'Toren', fontSize: '13px', color: '#533021', outline: 'none', flex: 1, textAlign: 'center', letterSpacing: '0.1em'}}
+              />
+              <button type="submit" style={{backgroundColor: '#195693', color: '#FAF6EE', padding: '10px 16px', fontFamily: 'Toren', fontSize: '13px', border: 'none', cursor: 'pointer', letterSpacing: '0.05em'}}>
+                Find
+              </button>
+            </form>
+          </div>
+
+          <div style={{backgroundColor: '#FFFFFF', padding: '32px', borderTop: '3px solid #8D3F2F'}}>
+            <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px'}}>02 — Release</p>
+            <h3 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px', marginBottom: '12px'}}>Register a book</h3>
+            <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '14px', lineHeight: '1.7', marginBottom: '24px'}}>Register your book, get a unique LB code, write it inside the cover and release it into the world.</p>
+            <a href="/submit" style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}>
+              Register a book
+            </a>
+          </div>
+
+          <div style={{backgroundColor: '#FFFFFF', padding: '32px', borderTop: '3px solid #FFFBCA', borderTopColor: '#533021'}}>
+            <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px'}}>03 — Send</p>
+            <h3 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px', marginBottom: '12px'}}>Send a book</h3>
+            <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '14px', lineHeight: '1.7', marginBottom: '24px'}}>Browse books available to be posted. Claim one and it will find its way to you — no matter where you are.</p>
+            <a href="/send" style={{display: 'inline-block', backgroundColor: '#533021', color: '#FAF6EE', padding: '12px 24px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none'}}>
+              Browse available books
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <section style={{backgroundColor: '#C6D8FF', padding: '64px 32px'}}>
         <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', textAlign: 'center', marginBottom: '48px'}}>
           How books travel
         </h2>
@@ -89,9 +141,9 @@ export default function Home() {
 
       <section style={{backgroundColor: '#FFFBCA', padding: '64px 32px', textAlign: 'center'}}>
         <h2 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '36px', marginBottom: '16px'}}>Support the community!</h2>
-<p style={{fontFamily: 'Toren', color: '#533021', fontSize: '15px', lineHeight: '1.7', maxWidth: '480px', margin: '0 auto 32px'}}>
-  I built this because I couldn't stop wondering where my books ended up. If you love it too, please consider supporting with a few dollars — it helps keep the lights on and the books moving.
-</p>
+        <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '15px', lineHeight: '1.7', maxWidth: '480px', margin: '0 auto 32px'}}>
+          I built this because I couldn't stop wondering where my books ended up. If you love it too, please consider supporting with a few dollars — it helps keep the lights on and the books moving.
+        </p>
         <a href="https://ko-fi.com/livingbooks" target="_blank" rel="noopener noreferrer" style={{backgroundColor: '#533021', color: '#FAF6EE', padding: '16px 32px', fontFamily: 'Toren', fontSize: '13px', letterSpacing: '0.1em', textDecoration: 'none', display: 'inline-block'}}>💰 = 📚✈️</a>
       </section>
 

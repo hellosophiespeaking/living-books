@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
   })
 
   await resend.emails.send({
-    from: 'Living Books <onboarding@resend.dev>',
+    from: 'Living Books <hello@livingbooksarchive.com>',
     to: book.email,
     subject: `Someone wants your book — ${book.title}`,
     html: `<div style="font-family: monospace; color: #533021; padding: 32px; max-width: 480px;">
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
   })
 
   await resend.emails.send({
-    from: 'Living Books <onboarding@resend.dev>',
+    from: 'Living Books <hello@livingbooksarchive.com>',
     to: requesterEmail,
     subject: `Your book is on its way — ${book.title}`,
     html: `<div style="font-family: monospace; color: #533021; padding: 32px; max-width: 480px;">

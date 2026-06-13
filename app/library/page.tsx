@@ -1,6 +1,6 @@
 import { supabase } from '../lib/supabase'
 import Link from 'next/link'
-
+export const revalidate = 0
 export default async function Library() {
   const { data: books } = await supabase.from('books').select('*').order('created_at', { ascending: false })
 

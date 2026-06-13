@@ -2,7 +2,7 @@ import { supabase } from '../../lib/supabase'
 import ReflectionForm from '../../lib/ReflectionForm'
 import BookMap from '../../lib/BookMap'
 
-export default async function BookPage({ params }: { params: Promise<{ slug: string }> }) {
+export const revalidate = 0
   const { slug } = await params
   const { data: book } = await supabase
     .from('books')

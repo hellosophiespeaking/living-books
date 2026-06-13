@@ -64,13 +64,13 @@ export default async function Home() {
 
           <div style={{marginTop: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
             <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase'}}>Have a book code?</p>
-            <form action="/find" method="GET" style={{display: 'flex', gap: '12px'}}>
+            <form action="/find" method="GET" style={{display: 'flex', gap: '8px', width: '100%'}}>
               <input
                 name="code"
                 placeholder="LB-00001"
-                style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '12px 16px', fontFamily: 'Toren', fontSize: '13px', color: '#533021', outline: 'none', width: '140px', textAlign: 'center', letterSpacing: '0.1em'}}
+                style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '10px 12px', fontFamily: 'Toren', fontSize: '13px', color: '#533021', outline: 'none', flex: 1, textAlign: 'center', letterSpacing: '0.1em', minWidth: '0', boxSizing: 'border-box'}}
               />
-              <button type="submit" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', background: 'none', border: 'none', cursor: 'pointer'}}>
+              <button type="submit" style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '13px', background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0}}>
                 Find book
               </button>
             </form>
@@ -87,13 +87,13 @@ export default async function Home() {
             <p style={{fontFamily: 'Toren', color: '#195693', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px'}}>01 — Find</p>
             <h3 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px', marginBottom: '12px'}}>Found a book?</h3>
             <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '14px', lineHeight: '1.7', marginBottom: '24px'}}>Enter the LB code from inside the cover to see where this book has been — and add your chapter to its story.</p>
-            <form action="/find" method="GET" style={{display: 'flex', gap: '12px'}}>
+            <form action="/find" method="GET" style={{display: 'flex', gap: '8px', width: '100%'}}>
               <input
                 name="code"
                 placeholder="LB-00001"
-                style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '10px 14px', fontFamily: 'Toren', fontSize: '13px', color: '#533021', outline: 'none', flex: 1, textAlign: 'center', letterSpacing: '0.1em'}}
+                style={{border: '1px solid #8D3F2F', backgroundColor: 'transparent', padding: '10px 12px', fontFamily: 'Toren', fontSize: '13px', color: '#533021', outline: 'none', flex: 1, textAlign: 'center', letterSpacing: '0.1em', minWidth: '0', boxSizing: 'border-box'}}
               />
-              <button type="submit" style={{backgroundColor: '#195693', color: '#FAF6EE', padding: '10px 16px', fontFamily: 'Toren', fontSize: '13px', border: 'none', cursor: 'pointer', letterSpacing: '0.05em'}}>
+              <button type="submit" style={{backgroundColor: '#195693', color: '#FAF6EE', padding: '10px 16px', fontFamily: 'Toren', fontSize: '13px', border: 'none', cursor: 'pointer', letterSpacing: '0.05em', flexShrink: 0}}>
                 Find
               </button>
             </form>
@@ -108,7 +108,7 @@ export default async function Home() {
             </a>
           </div>
 
-          <div style={{backgroundColor: '#FFFFFF', padding: '32px', borderTop: '3px solid #FFFBCA', borderTopColor: '#533021'}}>
+          <div style={{backgroundColor: '#FFFFFF', padding: '32px', borderTop: '3px solid #533021'}}>
             <p style={{fontFamily: 'Toren', color: '#533021', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px'}}>03 — Send</p>
             <h3 style={{fontFamily: 'Archivo', color: '#533021', fontSize: '24px', marginBottom: '12px'}}>Send a book</h3>
             <p style={{fontFamily: 'Toren', color: '#8D3F2F', fontSize: '14px', lineHeight: '1.7', marginBottom: '24px'}}>Browse books available to be posted. Claim one and it will find its way to you — no matter where you are.</p>

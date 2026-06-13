@@ -3,6 +3,8 @@ import ReflectionForm from '../../lib/ReflectionForm'
 import BookMap from '../../lib/BookMap'
 
 export const revalidate = 0
+
+export default async function BookPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const { data: book } = await supabase
     .from('books')

@@ -27,7 +27,7 @@ export async function sendNewBookEmail(title: string, author: string, code: stri
   })
 
   await resend.emails.send({
-    from: 'Living Books <onboarding@resend.dev>',
+    from: 'Living Books <hello@livingbooksarchive.com>',
     to: userEmail,
     subject: `Your book is registered — ${code}`,
     html: `<div style="font-family: monospace; color: #533021; padding: 32px; max-width: 480px;"><h1 style="font-size: 24px; margin-bottom: 8px;">Your book is registered</h1><p style="margin-bottom: 16px;">Hi ${yourName}, <strong>${title}</strong> by ${author} is now part of the Living Books archive.</p><p style="margin-bottom: 8px;">Your book code is:</p><p style="font-size: 32px; letter-spacing: 0.1em; color: #8D3F2F; margin-bottom: 24px;"><strong>${code}</strong></p><p style="margin-bottom: 8px;">Write this inside the front cover of your book before releasing it into the world:</p><p style="font-style: italic; color: #8D3F2F; margin-bottom: 32px; padding: 16px; border-left: 3px solid #8D3F2F;">"I am not lost — I am living. Track my journey at livingbooksarchive.com using code ${code}"</p><a href="https://livingbooksarchive.com/library" style="background-color: #533021; color: #FAF6EE; padding: 12px 24px; text-decoration: none; font-size: 13px;">View the library</a></div>`
